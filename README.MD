@@ -13,7 +13,7 @@ compser require hefekranz\pagination
 ```
 
 ### Usage
-Quick Example for GET /collection?page=2&amp;limit=10 on a collection of 100 items
+Quick Example for `GET /collection?page=2&amp;limit=10` on a collection of 100 items
 ```php
     public function getMeSomeCollectionAction(Request $request) {
 
