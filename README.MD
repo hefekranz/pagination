@@ -1,5 +1,7 @@
 # Pagination
 
+[![Build Status](https://travis-ci.org/hefekranz/pagination.svg?branch=master)](https://travis-ci.org/hefekranz/pagination)
+
 This is a very simple one. You take a request, you take the count of whatever items you want to display.  
 You out them together, you get a pagination.
 
