@@ -57,7 +57,8 @@ The class expects a Symfony\HttpFoundation\Request object. If you dont have one,
 From the global request, or your custom implementation.
 
 ```php
-        $request = Request::create("/collection","GET",["page" => 2,"limit" => 10]); /** or Request::createFromGlobals() */
+        $request = Request::create("/collection","GET",["page" => 2,"limit" => 10]); 
+        /** or Request::createFromGlobals() */
         $pagination = (new Pagination($objectRepo->count(), $request))->build();
 
 ```
