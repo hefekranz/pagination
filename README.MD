@@ -1,19 +1,20 @@
 # Pagination
 
 [![Build Status](https://travis-ci.org/hefekranz/pagination.svg?branch=master)](https://travis-ci.org/hefekranz/pagination)
+[![Coverage](https://codecov.io/gh/hefekranz/pagination/branch/master/graph/badge.svg)](https://codecov.io/gh/hefekranz/pagination)
 
-This is a very simple one. You take a request, you take the count of whatever items you want to display.  
-You out them together, you get a pagination.
+This is a very simple one. You take a request. You take the count of whatever items you want to display.  
+You put them together, you get a pagination object.
 
 
 ### Installation
 
 ```
-compser require hefekranz\pagination
+composer require hefekranz\pagination
 ```
 
 ### Usage
-Quick Example for `GET /collection?page=2&amp;limit=10` on a collection of 100 items
+Quick Example for `GET /collection?page=2&limit=10` on a collection of 100 items
 ```php
     public function getMeSomeCollectionAction(Request $request) {
 
