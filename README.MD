@@ -10,7 +10,7 @@ You put them together, you get a pagination object.
 ### Installation
 
 ```
-composer require hefekranz\pagination
+composer require hefekranz/pagination
 ```
 
 ### Usage
@@ -23,8 +23,8 @@ Quick Example for `GET /collection?page=2&limit=10` on a collection of 100 items
         $pagination = (new Pagination($objectRepo->count(), $request))->build();
         
         return new JsonResponse([
-            "pagination" => $pagination->__toArray(),
-            "data"       => $data->_toArray()
+            "pagination" => $pagination->toArray(),
+            "data"       => $data->toArray()
         ]);
     }
 ```
@@ -33,6 +33,7 @@ Would produce
 ```json
 {
     "pagination": {
+        "total": 100,
         "pages": {
             "first": 1,
             "previous": 1,

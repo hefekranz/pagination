@@ -47,12 +47,12 @@ class PaginationTest extends TestCase
 
     }
 
-    public function testItShouldNormaliseToArray() {
+    public function testItShouldNormalizeToArray() {
 
         $total = 100;
         $request = Request::create("/collection","GET",["page" => 2,"limit" => 10]);
 
-        $pagination = (new Pagination($total, $request))->build()->__toArray();
+        $pagination = (new Pagination($total, $request))->build()->toArray();
 
         $this->assertEquals(1,$pagination["pages"]["first"]);
         $this->assertEquals(1,$pagination["pages"]["first"]);

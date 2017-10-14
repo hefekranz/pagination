@@ -1,7 +1,6 @@
 {
     "name": "hefekranz/pagination",
     "description": "a simple lib to create a pagination from a symfony request",
-    "version": "0.0.1",
     "type": "library",
     "license": "MIT",
     "authors": [

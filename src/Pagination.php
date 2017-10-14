@@ -19,8 +19,10 @@ class Pagination
     const NODE_CURRENT = 'current';
     const NODE_NEXT = 'next';
     const NODE_LAST = 'last';
+
     const NODE_PAGES = 'pages';
     const NODE_LINKS = 'links';
+    const NODE_TOTAL = 'total';
 
     /** @var int */
     private $limit;
@@ -145,28 +147,26 @@ class Pagination
 
     private function generateLinks()
     {
-        $this->firstPage = $this->buildUrl(
-            array(
-                self::PARAMETER_PAGE => $this->first,
-                self::PARAMETER_LIMIT => $this->getLimit()
-            ));
-        $this->previousPage = $this->buildUrl(
-            array(
-                self::PARAMETER_PAGE => $this->previous,
-                self::PARAMETER_LIMIT => $this->getLimit()
-            ));
-        $this->currentPage = $this->buildUrl(array(
+        $this->firstPage = $this->buildUrl([
+            self::PARAMETER_PAGE => $this->first,
+            self::PARAMETER_LIMIT => $this->getLimit()
+        ]);
+        $this->previousPage = $this->buildUrl([
+            self::PARAMETER_PAGE => $this->previous,
+            self::PARAMETER_LIMIT => $this->getLimit()
+        ]);
+        $this->currentPage = $this->buildUrl([
             self::PARAMETER_PAGE => $this->current,
             self::PARAMETER_LIMIT => $this->getLimit()
-        ));
-        $this->nextPage = $this->buildUrl(array(
+        ]);
+        $this->nextPage = $this->buildUrl([
             self::PARAMETER_PAGE => $this->next,
             self::PARAMETER_LIMIT => $this->getLimit()
-        ));
-        $this->lastPage = $this->buildUrl(array(
+        ]);
+        $this->lastPage = $this->buildUrl([
             self::PARAMETER_PAGE => $this->last,
             self::PARAMETER_LIMIT => $this->getLimit()
-        ));
+        ]);
 
     }
 
@@ -333,27 +333,28 @@ class Pagination
     /**
      * @return array
      */
-    public function __toArray()
+    public function toArray()
     {
-        $links = array(
+        $links = [
             self::NODE_FIRST => $this->firstPage,
             self::NODE_PREVIOUS => $this->previousPage,
             self::NODE_CURRENT => $this->currentPage,
             self::NODE_NEXT => $this->nextPage,
             self::NODE_LAST => $this->lastPage
-        );
-        $pages = array(
+        ];
+        $pages = [
             self::NODE_FIRST => $this->first,
             self::NODE_PREVIOUS => $this->previous,
             self::NODE_CURRENT => $this->current,
             self::NODE_NEXT => $this->next,
             self::NODE_LAST => $this->last
-        );
+        ];
 
-        return $data = array(
+        return $data = [
             self::NODE_PAGES => $pages,
-            self::NODE_LINKS => $links
-        );
+            self::NODE_LINKS => $links,
+            self::NODE_TOTAL => $this->getTotalCount()
+        ];
 
     }
 
