@@ -50,13 +50,13 @@ class Pagination
     private $request;
 
 
-    public function __construct($total, Request $request = null)
+    public function __construct($total, Request $request = null, $pageLimit = 20)
     {
         $this->request = $request;
 
         $this->totalCount = $total;
 
-        $this->limit = 20;
+        $this->limit = $pageLimit;
         $this->current = 1;
         $this->first = 1;
         $this->previous = 1;
@@ -166,7 +166,7 @@ class Pagination
 
     private function calculateLast()
     {
-        $this->last = ceil($this->totalCount / $this->limit);
+        $this->last = (int) ceil($this->totalCount / $this->limit);
     }
 
     private function calculateCurrent()

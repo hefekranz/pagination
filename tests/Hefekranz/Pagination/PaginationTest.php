@@ -1,8 +1,4 @@
 <?php
-/**
- * @author Levin Mauritz <l.mauritz@delinero.de>
- *
- */
 
 namespace Tests\Hefekranz\Pagination;
 
